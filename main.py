@@ -173,7 +173,7 @@ def save_to_history(m):
 """
 BEGIN = "BEGIN"
 END = "END"
-
+LENGTH = 100
 
 def generate(filename):
     file = open(filename, "r")
@@ -200,7 +200,7 @@ def generate(filename):
                 dictionary[x[i]].add(x[i + 1])
         dictionary[x[len(x) - 1]].add(END)
     generated = ""
-    while len(generated.split(" ")) < 50:
+    while len(generated.split(" ")) < LENGTH:
         generated += find(dictionary)
     return generated
 
