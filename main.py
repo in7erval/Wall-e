@@ -209,10 +209,6 @@ def find(dictionary, generated=""):
     words = list(dictionary.get(BEGIN))
     while True:
         word = random.choice(words)
-        i = 0
-        while len(list(dictionary.get(word))) < 5 and i < 100:
-            i += 1
-            word = random.choice(words)
         if word == END:
             break
         generated += word + " "
