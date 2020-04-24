@@ -6,6 +6,7 @@ import time
 import random
 import telebot
 from telebot import types
+from collections import deque
 
 TOKEN = "1085187414:AAGoY-iUZ43A1Ya8b4ortxbS2a_utuOZYz8"
 MY_ID = 374545615
@@ -24,6 +25,17 @@ commands = {  # command description used in the "help" command
 # imageSelect.add('Mickey', 'Minnie')
 # hideBoard = types.ReplyKeyboardRemove()  # if sent as reply_markup, will hide the keyboard
 
+
+def print_dict(dictionary):
+	for x in dictionary:
+		print(x, dictionary[x])
+
+
+def print_dict_file(dictionary):
+	f = open("dictionary.txt", "w")
+	for x in dictionary:
+		f.write(x + " " + str(dictionary[x]) + "\n")
+	f.close()
 
 # only used for console output now
 def listener(messages):
@@ -45,21 +57,6 @@ def listener(messages):
 bot = telebot.TeleBot(TOKEN)
 bot.set_update_listener(listener)  # register listener
 
-"""
-# handle the "/start" command
-@bot.message_handler(commands=['start'])
-def command_start(m):
-    cid = m.chat.id
-    if cid not in knownUsers:  # if user hasn't used the "/start" command yet:
-        knownUsers.append(cid)  # save user id, so you could brodcast messages to all users of this bot later
-        userStep[cid] = 0  # save user id and his current "command level", so he can use the "/getImage" command
-        bot.send_message(cid, "Hello, stranger, let me scan you...")
-        bot.send_message(cid, "Scanning complete, I know you now")
-        command_help(m)  # show the new user the help page
-    else:
-        bot.send_message(cid, "I already know you, no need for me to scan you again!")
-
-"""
 # help page
 @bot.message_handler(commands=['help'])
 def command_help(m):
@@ -73,71 +70,22 @@ def command_help(m):
 
 @bot.message_handler(commands=['random_sentence'])
 def random_sentence(m):
-    bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt"))
+	bot.send_chat_action(m.chat.id, 'typing')
+	time.sleep(1)
+	bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt"))
 
 
-"""
-
-# chat_action example (not a good one...)
-@bot.message_handler(commands=['sendLongText'])
-def command_long_text(m):
-    cid = m.chat.id
-    bot.send_message(cid, "If you think so...")
-    bot.send_chat_action(cid, 'typing')  # show the bot "typing" (max. 5 secs)
-    time.sleep(3)
-    bot.send_message(cid, ".")
+# bot.send_chat_action(cid, 'typing')  # show the bot "typing" (max. 5 secs)
 
 
-# user can chose an image (multi-stage command example)
-@bot.message_handler(commands=['getImage'])
-def command_image(m):
-    cid = m.chat.id
-    bot.send_message(cid, "Please choose your image now", reply_markup=imageSelect)  # show the keyboard
-    userStep[cid] = 1  # set the user to the next step (expecting a reply in the listener now)
-
-
-# if the user has issued the "/getImage" command, process the answer
-@bot.message_handler(func=lambda message: get_user_step(message.chat.id) == 1)
-def msg_image_select(m):
-    cid = m.chat.id
-    text = m.text
-
-    # for some reason the 'upload_photo' status isn't quite working (doesn't show at all)
-    bot.send_chat_action(cid, 'typing')
-
-    if text == 'Mickey':  # send the appropriate image based on the reply to the "/getImage" command
-        bot.send_photo(cid, open('rooster.jpg', 'rb'),
-                       reply_markup=hideBoard)  # send file and hide keyboard, after image is sent
-        userStep[cid] = 0  # reset the users step back to 0
-    elif text == 'Minnie':
-        bot.send_photo(cid, open('kitten.jpg', 'rb'), reply_markup=hideBoard)
-        userStep[cid] = 0
-    else:
-        bot.send_message(cid, "Please, use the predefined keyboard!")
-        bot.send_message(cid, "Please try again")
-
-
-# filter on a specific message
-@bot.message_handler(func=lambda message: message.text == "hi")
-def command_text_hi(m):
-    bot.send_message(m.chat.id, "I love you too!")
-
-
-# default handler for every other text
-@bot.message_handler(func=lambda message: True, content_types=['text'])
-def command_default(m):
-    # this is the standard reply to a normal message
-    bot.send_message(m.chat.id, "I don't understand \"" + m.text + "\"\nMaybe try the help page at /help")
-"""
 @bot.message_handler(commands=['history'])
 def command_history(m):
-    file = open("history" + str(m.chat.id) + ".txt", "r")
-    lines = file.readlines()
-    stri = "History:\n"
-    for x in lines:
-        stri += x
-    bot.send_message(m.chat.id, stri)
-    file.close()
+	bot.send_chat_action(m.chat.id, 'typing')
+	stri = "History: (last 10 messages)\n"
+	with open("history" + str(m.chat.id) + ".txt") as f:
+		for row in deque(f, 10):
+			stri += row
+	bot.send_message(m.chat.id, stri)
 
 @bot.message_handler(commands=['reset_history'])
 def reset_history(m):
@@ -163,58 +111,60 @@ def reset_history(m):
 def get_id(m):
     bot.send_message(m.chat.id, m.from_user.id)
 
-"""
-@bot.message_handler(content_types=['text'])
-def save_to_history(m):
-    bot.send_message(m.chat.id, "Suka")
-    history_file = open("history.txt", "a")
-    history_file.write(m.from_user.first_name + "[" + str(m.from_user.id) + "] : " + m.text + "\n")
-    history_file.close()
-"""
+
+
+@bot.message_handler(func=lambda message: message.text == "ну ты и сука")
+def sticker12324(m):
+	bot.send_chat_action(m.chat.id, 'typing')
+	bot.send_sticker(m.chat.id, "CAACAgIAAx0CT5KqDQACJBReoopG6ZHc2eYbeX5Pu69-FJLQxwACAQADzxxTFmQqAAFeFSDeVhkE")
+
+
 BEGIN = "BEGIN"
 END = "END"
-LENGTH = 100
+LENGTH = 50
 
 def generate(filename):
-    file = open(filename, "r")
-    strings = file.readlines()
-    strs = set()
-    for x in strings:
-        strs.add(x.split(" : ", 2)[1].replace("\n", ""))
-    strings = list()
-    for x in strs:
-        strings.append(x.split(" "))
-    dictionary = {BEGIN: set(), END: set()}
-    for i in range(len(strings)):
-        x = strings[i]
-        for j in range(len(x)):
-            dictionary[x[j]] = set()
-
-    for x in strings:
-        dictionary[BEGIN].add(x[0])
-
-    for x in strings:
-        if len(x) > 1:
-            for i in range(len(x) - 1):
-                dictionary[x[i]] = set()
-                dictionary[x[i]].add(x[i + 1])
-        dictionary[x[len(x) - 1]].add(END)
-    generated = ""
-    while len(generated.split(" ")) < LENGTH:
-        generated += find(dictionary)
-    return generated
+	file = open(filename, "r")
+	strings = file.readlines()
+	strs = set()
+	for x in strings:
+		pr = x.split(" : ", 2)
+		if len(pr) > 1:
+			strs.add(pr[1].replace("\n", " ").lower())
+	strings = list()
+	for x in strs:
+		strings.append(x.replace(",", " ").replace("?", " ").replace("!", " ").replace(".", " ").split())
+	dictionary = {BEGIN: set(), END: set()}
+	for i in range(len(strings)):
+		x = strings[i]
+		for j in range(len(x)):
+			if x[j] not in dictionary.keys(): 
+				dictionary[x[j]] = set()
+	for x in strings:
+		dictionary[BEGIN].add(x[0])
+	for x in strings:
+		if len(x) > 1:
+			for i in range(len(x) - 1):
+				if x[i] not in dictionary.keys():
+					dictionary[x[i]] = set()
+				dictionary[x[i]].add(x[i + 1])
+		dictionary[x[len(x) - 1]].add(END)
+	generated = ""
+	print_dict_file(dictionary)
+	while len(generated.split(" ")) < LENGTH:
+		generated += find(dictionary).strip().capitalize() + ". "
+	return generated
 
 
 def find(dictionary, generated=""):
-    words = list(dictionary.get(BEGIN))
-    while True:
-        word = random.choice(words)
-        if word == END:
-            break
-        generated += word + " "
-        i = 0
-        words = list(dictionary.get(word))
-    return generated
+	words = list(dictionary.get(BEGIN))
+	while True:
+		word = random.choice(words)
+		if word == END:
+			break
+		generated += (word + " ")
+		words = list(dictionary.get(word))
+	return generated
 
 
 bot.polling()

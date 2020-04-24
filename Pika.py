@@ -1,4 +1,4 @@
- import telebot
+import telebot
 from telebot import types
 bot = telebot.TeleBot('922627039:AAFnSM9eTwr1kZyWD_vGWOFehz_iv6RNTL4')
 key = types.InlineKeyboardMarkup()
