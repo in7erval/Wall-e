@@ -16,7 +16,7 @@ A_ID = 948882144
 S_ID = 229916429
 SMALL = 5
 MEDIUM = 15
-LARGE = 30
+LARGE = 40
 COMMAND1 = "ls"
 COMMAND = "curl -s -X POST https://api.telegram.org/bot" + TOKEN + "/sendMessage -d chat_id=" # $CHAT_ID -d text="$MESSAGE""
 knownUsers = []     # todo: save these in a file,
@@ -30,7 +30,7 @@ commands = {  # command description used in the "help" command
     'random_sentence': 'return random sentence',
 	'large_random_sentence' : 'return random sentence of ' + str(LARGE) + ' words',
 	'medium_random_sentence' : 'return random sentence of ' + str(MEDIUM) + ' words',
-	'small_random_sentence' : 'return random sentence of ' + str(SMALL) + 'words'
+	'small_random_sentence' : 'return random sentence of ' + str(SMALL) + ' words'
 }
 
 andrew_stickers = [ "CAACAgIAAxkBAAIEDl6y6VHHWnQyREHAf6ciCC4g6sfWAAIMAAPPHFMW_xIObRSe8EQZBA",
@@ -100,7 +100,7 @@ def command_help(m):
 def random_sentence(m):
 	bot.send_chat_action(m.chat.id, 'typing')
 	time.sleep(1)
-	bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt", random.randint(SMALL, LARGE))
+	bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt", random.randint(SMALL, LARGE)))
 
 
 @bot.message_handler(commands=['large_random_sentence'])
@@ -211,8 +211,10 @@ def generate(filename, length):
 			dictionary[x[len(x) - 1]].add(END)
 	generated = ""
 	print_dict_file(dictionary)
-	while len(generated.split(" ")) < length:
+	count = 0
+	while len(generated.split(" ")) < length and count < 1000000:
 		generated = find(dictionary).strip().capitalize()
+		count += 1
 	return generated
 
 
