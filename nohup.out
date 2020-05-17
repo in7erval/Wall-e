@@ -1,0 +1,675 @@
+2020-04-27 09:27:28,901 (util.py:66 PollingThread) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:\n[b\'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 279, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1), timeout=timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 249, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 194, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']
+"
+2020-04-27 09:27:28,901 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']"
+2020-04-27 09:28:22,720 (util.py:66 PollingThread) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:\n[b\'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 279, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1), timeout=timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 249, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 194, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']
+"
+2020-04-27 09:28:22,720 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']"
+2020-04-27 09:28:31,859 (util.py:66 WorkerThread2) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 403 Forbidden. Response body:\n[b\'{"ok":false,"error_code":403,"description":"Forbidden: bot can\\\'t initiate conversation with a user"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 83, in everybody
+    bot.send_message(A_ID, "Andryusha idi nahui i zaidi v konfu plis")
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 601, in send_message
+    reply_markup, parse_mode, disable_notification, timeout))
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 154, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 403 Forbidden. Response body:
+[b'{"ok":false,"error_code":403,"description":"Forbidden: bot can\'t initiate conversation with a user"}']
+"
+2020-04-27 09:28:31,860 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 403 Forbidden. Response body:
+[b'{"ok":false,"error_code":403,"description":"Forbidden: bot can\'t initiate conversation with a user"}']"
+2020-04-27 09:32:00,530 (util.py:66 WorkerThread2) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 403 Forbidden. Response body:\n[b\'{"ok":false,"error_code":403,"description":"Forbidden: bot can\\\'t initiate conversation with a user"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 84, in everybody
+    bot.send_message(A_ID, "Andryusha " + s)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 601, in send_message
+    reply_markup, parse_mode, disable_notification, timeout))
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 154, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 403 Forbidden. Response body:
+[b'{"ok":false,"error_code":403,"description":"Forbidden: bot can\'t initiate conversation with a user"}']
+"
+2020-04-27 09:32:00,531 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 403 Forbidden. Response body:
+[b'{"ok":false,"error_code":403,"description":"Forbidden: bot can\'t initiate conversation with a user"}']"
+2020-04-27 10:28:42,933 (util.py:66 WorkerThread1) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 403 Forbidden. Response body:\n[b\'{"ok":false,"error_code":403,"description":"Forbidden: bot can\\\'t initiate conversation with a user"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 84, in everybody
+    bot.send_message(A_ID, "Andryusha " + s)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 601, in send_message
+    reply_markup, parse_mode, disable_notification, timeout))
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 154, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 403 Forbidden. Response body:
+[b'{"ok":false,"error_code":403,"description":"Forbidden: bot can\'t initiate conversation with a user"}']
+"
+2020-04-27 10:28:42,934 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 403 Forbidden. Response body:
+[b'{"ok":false,"error_code":403,"description":"Forbidden: bot can\'t initiate conversation with a user"}']"
+2020-04-27 10:29:48,828 (util.py:66 PollingThread) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:\n[b\'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 279, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1), timeout=timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 249, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 194, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']
+"
+2020-04-27 10:29:48,828 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']"
+2020-04-27 10:29:54,076 (util.py:66 WorkerThread2) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 403 Forbidden. Response body:\n[b\'{"ok":false,"error_code":403,"description":"Forbidden: bot can\\\'t initiate conversation with a user"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 84, in everybody
+    bot.send_message(A_ID, "Andryusha " + s)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 601, in send_message
+    reply_markup, parse_mode, disable_notification, timeout))
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 154, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 403 Forbidden. Response body:
+[b'{"ok":false,"error_code":403,"description":"Forbidden: bot can\'t initiate conversation with a user"}']
+"
+2020-04-27 10:29:54,076 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 403 Forbidden. Response body:
+[b'{"ok":false,"error_code":403,"description":"Forbidden: bot can\'t initiate conversation with a user"}']"
+2020-05-04 23:24:11,499 (util.py:66 PollingThread) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 500 Internal Server Error. Response body:\n[b\'{"ok":false,"error_code":500,"description":"Internal server error: restart"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 279, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1), timeout=timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 249, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 194, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 500 Internal Server Error. Response body:
+[b'{"ok":false,"error_code":500,"description":"Internal server error: restart"}']
+"
+2020-05-04 23:24:11,500 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 500 Internal Server Error. Response body:
+[b'{"ok":false,"error_code":500,"description":"Internal server error: restart"}']"
+  File "Pika.py", line 7
+SyntaxError: Non-UTF-8 code starting with '\xea' in file Pika.py on line 7, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+2020-05-06 15:58:14,718 (util.py:66 WorkerThread2) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:\n[b\'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 84, in everybody
+    bot.send_message(A_ID, "Andryusha " + s)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 601, in send_message
+    reply_markup, parse_mode, disable_notification, timeout))
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 154, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:
+[b'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}']
+"
+2020-05-06 15:58:14,718 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:
+[b'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}']"
+2020-05-06 16:01:24,205 (util.py:66 WorkerThread1) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:\n[b\'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 84, in everybody
+    bot.send_message(A_ID, "Andryusha " + s)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 601, in send_message
+    reply_markup, parse_mode, disable_notification, timeout))
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 154, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:
+[b'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}']
+"
+2020-05-06 16:01:24,206 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:
+[b'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}']"
+2020-05-06 16:06:40,002 (util.py:66 PollingThread) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:\n[b\'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 279, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1), timeout=timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 249, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 194, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']
+"
+2020-05-06 16:06:40,003 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']"
+2020-05-06 16:06:46,348 (util.py:66 WorkerThread1) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:\n[b\'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 85, in everybody
+    bot.send_message(A_ID, "Andryusha " + s)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 601, in send_message
+    reply_markup, parse_mode, disable_notification, timeout))
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 154, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:
+[b'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}']
+"
+2020-05-06 16:06:46,349 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:
+[b'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}']"
+2020-05-06 16:13:14,710 (util.py:66 WorkerThread2) ERROR - TeleBot: "NameError occurred, args=("name 'sleep' is not defined",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 83, in everybody
+    sleep(1)
+NameError: name 'sleep' is not defined
+"
+Traceback (most recent call last):
+  File "main.py", line 180, in <module>
+    bot.polling()
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 392, in polling
+    self.__threaded_polling(none_stop, interval, timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 416, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 109, in raise_exceptions
+    six.reraise(self.exc_info[0], self.exc_info[1], self.exc_info[2])
+  File "/usr/lib/python3/dist-packages/six.py", line 686, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 83, in everybody
+    sleep(1)
+NameError: name 'sleep' is not defined
+2020-05-06 16:23:48,718 (util.py:66 WorkerThread2) ERROR - TeleBot: "NameError occurred, args=("name 'sleep' is not defined",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 85, in everybody
+    sleep(1)
+NameError: name 'sleep' is not defined
+"
+Traceback (most recent call last):
+  File "main.py", line 183, in <module>
+    bot.polling()
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 392, in polling
+    self.__threaded_polling(none_stop, interval, timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 416, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 109, in raise_exceptions
+    six.reraise(self.exc_info[0], self.exc_info[1], self.exc_info[2])
+  File "/usr/lib/python3/dist-packages/six.py", line 686, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 85, in everybody
+    sleep(1)
+NameError: name 'sleep' is not defined
+dictionary.txt
+history-1001229537008.txt
+history-1001335011853.txt
+history374545615.txt
+history-462677153.txt
+main.py
+nohup.out
+Pika.py
+script.sh
+2020-05-06 16:24:47,727 (util.py:66 WorkerThread1) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:\n[b\'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 91, in everybody
+    bot.send_message(A_ID, "Andryusha " + s)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 601, in send_message
+    reply_markup, parse_mode, disable_notification, timeout))
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 154, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:
+[b'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}']
+"
+2020-05-06 16:24:47,727 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:
+[b'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}']"
+total 136
+drwxr-xr-x 3 root root  4096 May  6 16:26 .
+drwx------ 7 root root  4096 May  6 16:26 ..
+-rw-r--r-- 1 root root 24045 Apr 27 09:19 dictionary.txt
+drwxr-xr-x 8 root root  4096 Apr 24 07:35 .git
+-rw-r--r-- 1 root root   911 Apr 28 08:08 history-1001229537008.txt
+-rw-r--r-- 1 root root 20934 Apr 27 10:33 history-1001335011853.txt
+-rw-r--r-- 1 root root    79 Apr 23 15:00 history374545615.txt
+-rw-r--r-- 1 root root  6609 Apr 24 08:18 history-462677153.txt
+-rw-r--r-- 1 root root  5754 May  6 16:26 main.py
+-rw------- 1 root root 25463 May  6 16:24 nohup.out
+-rw-r--r-- 1 root root 15648 Apr 23 15:52 Pika.py
+-rw-r--r-- 1 root root   220 May  6 16:19 script.sh
+total 136
+drwxr-xr-x 3 root root  4096 May  6 16:26 .
+drwx------ 7 root root  4096 May  6 16:26 ..
+-rw-r--r-- 1 root root 24045 Apr 27 09:19 dictionary.txt
+drwxr-xr-x 8 root root  4096 Apr 24 07:35 .git
+-rw-r--r-- 1 root root   911 Apr 28 08:08 history-1001229537008.txt
+-rw-r--r-- 1 root root 20934 Apr 27 10:33 history-1001335011853.txt
+-rw-r--r-- 1 root root    79 Apr 23 15:00 history374545615.txt
+-rw-r--r-- 1 root root  6609 Apr 24 08:18 history-462677153.txt
+-rw-r--r-- 1 root root  5754 May  6 16:26 main.py
+-rw------- 1 root root 26133 May  6 16:26 nohup.out
+-rw-r--r-- 1 root root 15648 Apr 23 15:52 Pika.py
+-rw-r--r-- 1 root root   220 May  6 16:19 script.sh
+2020-05-06 16:26:24,539 (util.py:66 WorkerThread1) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:\n[b\'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 91, in everybody
+    bot.send_message(A_ID, "Andryusha " + s)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 601, in send_message
+    reply_markup, parse_mode, disable_notification, timeout))
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 154, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:
+[b'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}']
+"
+2020-05-06 16:26:24,540 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 400 Bad Request. Response body:
+[b'{"ok":false,"error_code":400,"description":"Bad Request: chat not found"}']"
+2020-05-06 16:45:18,583 (util.py:66 PollingThread) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:\n[b\'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 279, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1), timeout=timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 249, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 194, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']
+"
+2020-05-06 16:45:18,584 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']"
+2020-05-06 16:52:17,844 (util.py:66 PollingThread) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:\n[b\'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 279, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1), timeout=timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 249, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 194, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']
+"
+2020-05-06 16:52:17,845 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']"
+2020-05-06 16:53:02,709 (util.py:66 PollingThread) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:\n[b\'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 279, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1), timeout=timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 249, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 194, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']
+"
+2020-05-06 16:53:02,710 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']"
+{"ok":false,"error_code":403,"description":"Forbidden: bot can't initiate conversation with a user"}2020-05-06 18:08:38,728 (util.py:66 WorkerThread1) ERROR - TeleBot: "FileNotFoundError occurred, args=(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 97, in random_sentence
+    bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt"))
+  File "main.py", line 157, in generate
+    file = open(filename, "r")
+FileNotFoundError: [Errno 2] No such file or directory: 'history698945902.txt'
+"
+Traceback (most recent call last):
+  File "main.py", line 200, in <module>
+    bot.polling()
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 392, in polling
+    self.__threaded_polling(none_stop, interval, timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 416, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 109, in raise_exceptions
+    six.reraise(self.exc_info[0], self.exc_info[1], self.exc_info[2])
+  File "/usr/lib/python3/dist-packages/six.py", line 686, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 97, in random_sentence
+    bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt"))
+  File "main.py", line 157, in generate
+    file = open(filename, "r")
+FileNotFoundError: [Errno 2] No such file or directory: 'history698945902.txt'
+2020-05-07 04:20:17,830 (util.py:66 WorkerThread1) ERROR - TeleBot: "FileNotFoundError occurred, args=(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 115, in command_history
+    with open("history" + str(m.chat.id) + ".txt") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'history698945902.txt'
+"
+Traceback (most recent call last):
+  File "main.py", line 200, in <module>
+    bot.polling()
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 392, in polling
+    self.__threaded_polling(none_stop, interval, timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 416, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 109, in raise_exceptions
+    six.reraise(self.exc_info[0], self.exc_info[1], self.exc_info[2])
+  File "/usr/lib/python3/dist-packages/six.py", line 686, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 115, in command_history
+    with open("history" + str(m.chat.id) + ".txt") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'history698945902.txt'
+{"ok":false,"error_code":403,"description":"Forbidden: bot can't initiate conversation with a user"}2020-05-07 17:14:00,101 (util.py:66 WorkerThread1) ERROR - TeleBot: "IndexError occurred, args=('list index out of range',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 97, in random_sentence
+    bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt"))
+  File "main.py", line 174, in generate
+    dictionary[BEGIN].add(x[0])
+IndexError: list index out of range
+"
+Traceback (most recent call last):
+  File "main.py", line 200, in <module>
+    bot.polling()
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 392, in polling
+    self.__threaded_polling(none_stop, interval, timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 416, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 109, in raise_exceptions
+    six.reraise(self.exc_info[0], self.exc_info[1], self.exc_info[2])
+  File "/usr/lib/python3/dist-packages/six.py", line 686, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 97, in random_sentence
+    bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt"))
+  File "main.py", line 174, in generate
+    dictionary[BEGIN].add(x[0])
+IndexError: list index out of range
+2020-05-07 17:14:43,313 (util.py:66 WorkerThread2) ERROR - TeleBot: "IndexError occurred, args=('list index out of range',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 97, in random_sentence
+    bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt"))
+  File "main.py", line 174, in generate
+    dictionary[BEGIN].add(x[0])
+IndexError: list index out of range
+"
+Traceback (most recent call last):
+  File "main.py", line 200, in <module>
+    bot.polling()
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 392, in polling
+    self.__threaded_polling(none_stop, interval, timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 416, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 109, in raise_exceptions
+    six.reraise(self.exc_info[0], self.exc_info[1], self.exc_info[2])
+  File "/usr/lib/python3/dist-packages/six.py", line 686, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "main.py", line 97, in random_sentence
+    bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt"))
+  File "main.py", line 174, in generate
+    dictionary[BEGIN].add(x[0])
+IndexError: list index out of range
+2020-05-07 17:30:41,781 (util.py:66 PollingThread) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:\n[b\'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 279, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1), timeout=timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 249, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 194, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']
+"
+2020-05-07 17:30:41,782 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']"
+2020-05-07 17:34:18,107 (util.py:66 PollingThread) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:\n[b\'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 279, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1), timeout=timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 249, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 194, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']
+"
+2020-05-07 17:34:18,107 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']"
+2020-05-07 17:34:53,700 (util.py:66 PollingThread) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:\n[b\'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 279, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1), timeout=timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 249, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 194, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']
+"
+2020-05-07 17:34:53,700 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']"
+2020-05-08 00:01:24,104 (util.py:66 PollingThread) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 500 Internal Server Error. Response body:\n[b\'{"ok":false,"error_code":500,"description":"Internal Server Error: restart"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 279, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1), timeout=timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 249, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 194, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 500 Internal Server Error. Response body:
+[b'{"ok":false,"error_code":500,"description":"Internal Server Error: restart"}']
+"
+2020-05-08 00:01:24,105 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 500 Internal Server Error. Response body:
+[b'{"ok":false,"error_code":500,"description":"Internal Server Error: restart"}']"
+2020-05-08 12:07:13,011 (util.py:66 PollingThread) ERROR - TeleBot: "AttributeError occurred, args=("'NoneType' object has no attribute 'lower'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 280, in __retrieve_updates
+    self.process_new_updates(updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 317, in process_new_updates
+    self.process_new_messages(new_messages)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 339, in process_new_messages
+    self._notify_command_handlers(self.message_handlers, new_messages)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 1801, in _notify_command_handlers
+    if self._test_message_handler(message_handler, message):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 1769, in _test_message_handler
+    if not self._test_filter(filter, filter_value, message):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 1790, in _test_filter
+    return test_cases.get(filter, lambda msg: False)(message)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 1787, in <lambda>
+    'func': lambda msg: filter_value(msg)
+  File "main.py", line 145, in <lambda>
+    @bot.message_handler(func=lambda message: "сука" in message.text.lower())
+AttributeError: 'NoneType' object has no attribute 'lower'
+"
+Traceback (most recent call last):
+  File "main.py", line 202, in <module>
+    bot.polling()
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 392, in polling
+    self.__threaded_polling(none_stop, interval, timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 415, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 79, in raise_exceptions
+    six.reraise(self.exc_info[0], self.exc_info[1], self.exc_info[2])
+  File "/usr/lib/python3/dist-packages/six.py", line 686, in reraise
+    raise value
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 280, in __retrieve_updates
+    self.process_new_updates(updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 317, in process_new_updates
+    self.process_new_messages(new_messages)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 339, in process_new_messages
+    self._notify_command_handlers(self.message_handlers, new_messages)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 1801, in _notify_command_handlers
+    if self._test_message_handler(message_handler, message):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 1769, in _test_message_handler
+    if not self._test_filter(filter, filter_value, message):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 1790, in _test_filter
+    return test_cases.get(filter, lambda msg: False)(message)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 1787, in <lambda>
+    'func': lambda msg: filter_value(msg)
+  File "main.py", line 145, in <lambda>
+    @bot.message_handler(func=lambda message: "сука" in message.text.lower())
+AttributeError: 'NoneType' object has no attribute 'lower'
+{"ok":false,"error_code":403,"description":"Forbidden: bot can't initiate conversation with a user"}2020-05-12 15:55:42,804 (util.py:66 PollingThread) ERROR - TeleBot: "ApiException occurred, args=('A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:\n[b\'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}\']',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/telebot/util.py", line 60, in run
+    task(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 279, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1), timeout=timeout)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/__init__.py", line 249, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 194, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 60, in _make_request
+    return _check_result(method_name, result)['result']
+  File "/usr/local/lib/python3.5/dist-packages/telebot/apihelper.py", line 79, in _check_result
+    raise ApiException(msg, method_name, result)
+telebot.apihelper.ApiException: A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']
+"
+2020-05-12 15:55:42,805 (__init__.py:420 MainThread) ERROR - TeleBot: "A request to the Telegram API was unsuccessful. The server returned HTTP 409 Conflict. Response body:
+[b'{"ok":false,"error_code":409,"description":"Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}']"
+  File "main.py", line 107
+    def random_sentence(m):
+      ^
+SyntaxError: invalid syntax
+  File "main.py", line 107
+    def random_sentence(m):
+      ^
+SyntaxError: invalid syntax
+  File "main.py", line 107
+    def rarge_random_sentence(m):
+      ^
+SyntaxError: invalid syntax

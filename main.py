@@ -7,9 +7,18 @@ import random
 import telebot
 from telebot import types
 from collections import deque
+import os
 
 TOKEN = "1085187414:AAGoY-iUZ43A1Ya8b4ortxbS2a_utuOZYz8"
 MY_ID = 374545615
+Z_ID = 919861051
+A_ID = 948882144
+S_ID = 229916429
+SMALL = 5
+MEDIUM = 15
+LARGE = 30
+COMMAND1 = "ls"
+COMMAND = "curl -s -X POST https://api.telegram.org/bot" + TOKEN + "/sendMessage -d chat_id=" # $CHAT_ID -d text="$MESSAGE""
 knownUsers = []     # todo: save these in a file,
 userStep = {}       # so they won't reset every time the bot restarts
 
@@ -18,8 +27,28 @@ commands = {  # command description used in the "help" command
     'history'       : 'Shows all messages',
     'reset_history' : 'Delete all history messages',
     'my_id'         : 'return your id',
-    'random_sentence': 'return random sentence'
+    'random_sentence': 'return random sentence',
+	'large_random_sentence' : 'return random sentence of ' + str(LARGE) + ' words',
+	'medium_random_sentence' : 'return random sentence of ' + str(MEDIUM) + ' words',
+	'small_random_sentence' : 'return random sentence of ' + str(SMALL) + 'words'
 }
+
+andrew_stickers = [ "CAACAgIAAxkBAAIEDl6y6VHHWnQyREHAf6ciCC4g6sfWAAIMAAPPHFMW_xIObRSe8EQZBA",
+					"CAACAgIAAxkBAAIEE16y6ieuLn_a1joCCWtf1ve2LWXSAAIBAAPPHFMWZCoAAV4VIN5WGQQ",
+					"CAACAgIAAxkBAAIEFV6y6jTkYvMlQUKJR0UFLJj5QrRBAAIGAAPPHFMWD0lbtp6iuh4ZBA",
+					"CAACAgIAAxkBAAIEF16y6kS2WQSRkle5LKknEZRMCoHgAAIHAAPPHFMWwDI8NPfq8RsZBA",
+					"CAACAgIAAxkBAAIEGV6y6lRC8V4IXFFgDWw4Kai52lo4AAIIAAPPHFMWLY1eRtlHV7AZBA",
+					"CAACAgIAAxkBAAIEG16y6m1byu2S_viRgz8uvtl1KFNFAAIJAAPPHFMWkpb7UbBT4fsZBA",
+					"CAACAgIAAxkBAAIEHV6y6nbHiYksGG9asOuu2zmiGpOvAAIKAAPPHFMWOevX0ynrgOkZBA",
+					"CAACAgIAAxkBAAIEH16y6oFeaJrYPiHcD7MAAbvpGVgSOwACCwADzxxTFifmEP1vWjb0GQQ",
+					"CAACAgIAAxkBAAIEI16y6qKQWQ1fa1Ff47AeilLn3rQ_AAINAAPPHFMWmuFldpfiaVMZBA",
+					"CAACAgIAAxkBAAIEJV6y6q0JcEGoEgEJ4vceWmuzqF3dAAIOAAPPHFMW_Hws-Aiv2TgZBA",
+					"CAACAgIAAxkBAAIEJ16y6rd7qK4xd5WBy_WOdsAREHaNAAIPAAPPHFMWpiPA89HCncYZBA",
+					"CAACAgIAAxkBAAIEKV6y6sHanYl7nidGYQ6IR9fKZggEAAIQAAPPHFMWCW9W5uGyrmgZBA",
+					"CAACAgIAAxkBAAIEK16y6s0_2JFwagNQznsywHY288VMAAIRAAPPHFMW_qspvjA-hL0ZBA",
+					"CAACAgIAAxkBAAIELV6y6tncqtRBIphzxjRhMfCyV93OAAISAAPPHFMWN6eASVHHi0sZBA",
+					"CAACAgIAAxkBAAIEL16y6uOW1ulDiF3LsvfdQahyarS6AAITAAPPHFMWlvLmN498LmIZBA"					
+				]		
 
 # imageSelect = types.ReplyKeyboardMarkup(one_time_keyboard=True)  # create the image selection keyboard
 # imageSelect.add('Mickey', 'Minnie')
@@ -44,13 +73,12 @@ def listener(messages):
     """
     for m in messages:
         if m.content_type == 'text' and m.text[0] != '/':
-            file_history = open("history" + str(m.chat.id) + ".txt", "a")
+            file_history = open("history" + str(m.chat.id) + ".txt", "a+")
             file_history.write(m.from_user.first_name + "[" + str(m.from_user.id) + "] : " + m.text + "\n")
             file_history.close()
         elif m.content_type == 'sticker':
-            bot.send_message(m.chat.id, m.sticker.file_id)
+            bot.send_message(MY_ID, m.sticker.file_id)
             file_history = open("history" + str(m.chat.id) + ".txt", "a")
-            file_history.write(m.from_user.first_name + "[" + str(m.from_user.id) + "] : " + m.sticker.file_id + "\n")
             file_history.close()
 
 
@@ -72,10 +100,40 @@ def command_help(m):
 def random_sentence(m):
 	bot.send_chat_action(m.chat.id, 'typing')
 	time.sleep(1)
-	bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt"))
+	bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt", random.randint(SMALL, LARGE))
 
 
-# bot.send_chat_action(cid, 'typing')  # show the bot "typing" (max. 5 secs)
+@bot.message_handler(commands=['large_random_sentence'])
+def large_random_sentence(m):
+	bot.send_chat_action(m.chat.id, 'typing')
+	time.sleep(1)
+	bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt", LARGE))
+
+
+@bot.message_handler(commands=['medium_random_sentence'])
+def medium_random_sentence(m):
+	bot.send_chat_action(m.chat.id, 'typing')
+	time.sleep(1)
+	bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt", MEDIUM))
+
+
+@bot.message_handler(commands=['small_random_sentence'])
+def small_random_sentence(m):
+	bot.send_chat_action(m.chat.id, 'typing')
+	time.sleep(1)
+	bot.send_message(m.chat.id, generate("history" + str(m.chat.id) + ".txt", SMALL))
+
+
+@bot.message_handler(commands=['everybody'])
+def	everybody(m):
+	s = "idi nahui i zaidi v konfu plis"
+	bot.send_message(m.chat.id, "@soooslooow @suslik13 go to nahui")
+	bot.send_message(MY_ID, "Dimochka " + s)
+	# bot.send_message(Z_ID, "Zenechka " + s)
+	# bot.send_message(A_ID, "Andryusha " + s)
+	# bot.send_message(S_ID, "Serezhecha " + s)
+	os.system(COMMAND + str(A_ID) + ' -d text="Andryusha ' + s + '"')
+
 
 
 @bot.message_handler(commands=['history'])
@@ -89,7 +147,7 @@ def command_history(m):
 
 @bot.message_handler(commands=['reset_history'])
 def reset_history(m):
-    if m.from_user.id == MY_ID:
+    if m.chat.id != m.from_user.id and m.from_user.id == MY_ID:
         file = open("history" + str(m.chat.id) + ".txt", "r")
         to_f = open("backup" + str(m.chat.id) + ".txt", "w")
         lines = file.readlines()
@@ -112,18 +170,18 @@ def get_id(m):
     bot.send_message(m.chat.id, m.from_user.id)
 
 
-
-@bot.message_handler(func=lambda message: message.text == "ну ты и сука")
+@bot.message_handler(func=lambda message: "сука" in message.text.lower())
 def sticker12324(m):
 	bot.send_chat_action(m.chat.id, 'typing')
-	bot.send_sticker(m.chat.id, "CAACAgIAAx0CT5KqDQACJBReoopG6ZHc2eYbeX5Pu69-FJLQxwACAQADzxxTFmQqAAFeFSDeVhkE")
+	bot.send_sticker(m.chat.id, random.choice(andrew_stickers))
+
 
 
 BEGIN = "BEGIN"
 END = "END"
 LENGTH = 50
 
-def generate(filename):
+def generate(filename, length):
 	file = open(filename, "r")
 	strings = file.readlines()
 	strs = set()
@@ -141,18 +199,20 @@ def generate(filename):
 			if x[j] not in dictionary.keys(): 
 				dictionary[x[j]] = set()
 	for x in strings:
-		dictionary[BEGIN].add(x[0])
+		if len(x) > 0:
+			dictionary[BEGIN].add(x[0])
 	for x in strings:
 		if len(x) > 1:
 			for i in range(len(x) - 1):
 				if x[i] not in dictionary.keys():
 					dictionary[x[i]] = set()
 				dictionary[x[i]].add(x[i + 1])
-		dictionary[x[len(x) - 1]].add(END)
+		if len(x) > 0:
+			dictionary[x[len(x) - 1]].add(END)
 	generated = ""
 	print_dict_file(dictionary)
-	while len(generated.split(" ")) < LENGTH:
-		generated += find(dictionary).strip().capitalize() + ". "
+	while len(generated.split(" ")) < length:
+		generated = find(dictionary).strip().capitalize()
 	return generated
 
 
