@@ -4,26 +4,26 @@ bot = telebot.TeleBot('922627039:AAFnSM9eTwr1kZyWD_vGWOFehz_iv6RNTL4')
 key = types.InlineKeyboardMarkup()
 
 keyboard1 = telebot.types.ReplyKeyboardMarkup(True)
-keyboard1.row('команды', 'random')
+keyboard1.row('СЂР°РЅРґРѕРј', 'random')
 keyboard2 = telebot.types.ReplyKeyboardMarkup(True)
 keyboard2.row('Aya yo')
 keyboard3 = telebot.types.ReplyKeyboardMarkup(True)
 keyboard3.row('Stop ayaya')
 keyboard4 = telebot.types.ReplyKeyboardMarkup(True)
-keyboard4.row('Да')
+keyboard4.row('Г„Г ')
 keyboard5 = telebot.types.ReplyKeyboardMarkup(True)
-keyboard5.row('stop гэндальф')
+keyboard5.row('stop ГЈГЅГ­Г¤Г Г«ГјГґ')
 keyboard6 = telebot.types.ReplyKeyboardMarkup(True)
-keyboard6.row('Да', 'Нет')
+keyboard6.row('Г„Г ', 'ГЌГҐГІ')
 
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
-      bot.send_message(message.chat.id, 'Меню:', reply_markup=keyboard1)
+      bot.send_message(message.chat.id, 'ГЊГҐГ­Гѕ:', reply_markup=keyboard1)
 @bot.message_handler(content_types=['text'])
 @bot.message_handler(content_types=['sticker'])
 
-# для просмотра id стикера
+# Г¤Г«Гї ГЇГ°Г®Г±Г¬Г®ГІГ°Г  id Г±ГІГЁГЄГҐГ°Г 
 #def send_text5 (message):
 #    print (message)
 #    bot.send_message(message.chat.id,message);
@@ -37,20 +37,20 @@ def send_text (message):
 
 
 
-     if message.text.lower() == 'команды':
-        bot.send_message(message.chat.id, "Открыть список команд?", reply_markup=keyboard4);
+     if message.text.lower() == 'ГЄГ®Г¬Г Г­Г¤Г»':
+        bot.send_message(message.chat.id, "ГЋГІГЄГ°Г»ГІГј Г±ГЇГЁГ±Г®ГЄ ГЄГ®Г¬Г Г­Г¤?", reply_markup=keyboard4);
         bot.register_next_step_handler(message, send_text6);
 
 
 
 
-     if "красный диплом" in message.text.lower():
+     if "ГЄГ°Г Г±Г­Г»Г© Г¤ГЁГЇГ«Г®Г¬" in message.text.lower():
         bot.send_photo(message.chat.id,'https://mywishcard.com/s/i2/74/8/470x0_TNVi53JE693951PFq8eyMGkp9Zn5pnqn___jpg____4_aae855ea.jpg')
 
 
      if message.text.lower() == 'start':
-        bot.send_message(message.chat.id, 'Меню:', reply_markup=keyboard1)
-     if message.text.lower() == 'райан фото серёжа':
+        bot.send_message(message.chat.id, 'ГЊГҐГ­Гѕ:', reply_markup=keyboard1)
+     if message.text.lower() == 'Г°Г Г©Г Г­ ГґГ®ГІГ® Г±ГҐГ°ВёГ¦Г ':
         bot.send_photo(message.chat.id,'https://im0-tub-ru.yandex.net/i?id=c2ad27bd9f4ad8a9c17ff5862dda42df-l&n=13')
 
      if message.text.lower() == 'pikachu':
@@ -60,38 +60,38 @@ def send_text (message):
 
 
      if message.text.lower() == '...':
-        bot.send_message(message.chat.id, 'произошла постирония')
+        bot.send_message(message.chat.id, 'ГЇГ°Г®ГЁГ§Г®ГёГ«Г  ГЇГ®Г±ГІГЁГ°Г®Г­ГЁГї')
         bot.send_photo(message.chat.id,'https://im0-tub-ru.yandex.net/i?id=509de419419eb3797b638f7b9f13dae1-l&n=13')
 
 
 
-     #if message.text.lower() == 'команды':
-      # bot.send_message(message.chat.id, 'Перед каждой командой пиши мое имя. Исключение: секундомер, потому что я не секундомер.\n -Привет \n -пока \n -а \n -кто такой андрей? \n -андрей это \n -ааа \n -ну да \n -держу в курсе \n -твой любимый фильм \n -ракета \n -а? \n -гослинг \n -фото андрей \n - фото серёжа  \n -ставь лайк \n -секундомер (для остановки пиши стоп \n ...\n -Yoko ')
-     if message.text.lower() == 'райан привет':
-        bot.send_message(message.chat.id, 'Привет')
-     if message.text.lower() == 'райан пока':
-        bot.send_message(message.chat.id, 'Увидимся в бэтманке')
-     if message.text.lower() == 'райан а':
-        bot.send_message(message.chat.id, 'А? ЧТО? М?')
-     if message.text.lower() == 'райан кто такой андрей?':
-        bot.send_message(message.chat.id, 'Самый лучший человек')
-     if message.text.lower() == 'райан андрей это':
-        bot.send_message(message.chat.id, 'солнышко')
-     if message.text.lower() == 'райан ааа':
-        bot.send_message(message.chat.id, 'ну тогда давай')
-     if message.text.lower() == 'райан ну да':
-        bot.send_message(message.chat.id, 'Ну да получается')
-     if message.text.lower() == '/держу в курсе':
-        bot.send_message(message.chat.id, '#держувкурсеплотнее')
+     #if message.text.lower() == 'ГЄГ®Г¬Г Г­Г¤Г»':
+      # bot.send_message(message.chat.id, 'ГЏГҐГ°ГҐГ¤ ГЄГ Г¦Г¤Г®Г© ГЄГ®Г¬Г Г­Г¤Г®Г© ГЇГЁГёГЁ Г¬Г®ГҐ ГЁГ¬Гї. Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ: Г±ГҐГЄГіГ­Г¤Г®Г¬ГҐГ°, ГЇГ®ГІГ®Г¬Гі Г·ГІГ® Гї Г­ГҐ Г±ГҐГЄГіГ­Г¤Г®Г¬ГҐГ°.\n -ГЏГ°ГЁГўГҐГІ \n -ГЇГ®ГЄГ  \n -Г  \n -ГЄГІГ® ГІГ ГЄГ®Г© Г Г­Г¤Г°ГҐГ©? \n -Г Г­Г¤Г°ГҐГ© ГЅГІГ® \n -Г Г Г  \n -Г­Гі Г¤Г  \n -Г¤ГҐГ°Г¦Гі Гў ГЄГіГ°Г±ГҐ \n -ГІГўГ®Г© Г«ГѕГЎГЁГ¬Г»Г© ГґГЁГ«ГјГ¬ \n -Г°Г ГЄГҐГІГ  \n -Г ? \n -ГЈГ®Г±Г«ГЁГ­ГЈ \n -ГґГ®ГІГ® Г Г­Г¤Г°ГҐГ© \n - ГґГ®ГІГ® Г±ГҐГ°ВёГ¦Г   \n -Г±ГІГ ГўГј Г«Г Г©ГЄ \n -Г±ГҐГЄГіГ­Г¤Г®Г¬ГҐГ° (Г¤Г«Гї Г®Г±ГІГ Г­Г®ГўГЄГЁ ГЇГЁГёГЁ Г±ГІГ®ГЇ \n ...\n -Yoko ')
+     if message.text.lower() == 'Г°Г Г©Г Г­ ГЇГ°ГЁГўГҐГІ':
+        bot.send_message(message.chat.id, 'ГЏГ°ГЁГўГҐГІ')
+     if message.text.lower() == 'Г°Г Г©Г Г­ ГЇГ®ГЄГ ':
+        bot.send_message(message.chat.id, 'Г“ГўГЁГ¤ГЁГ¬Г±Гї Гў ГЎГЅГІГ¬Г Г­ГЄГҐ')
+     if message.text.lower() == 'Г°Г Г©Г Г­ Г ':
+        bot.send_message(message.chat.id, 'ГЂ? Г—Г’ГЋ? ГЊ?')
+     if message.text.lower() == 'Г°Г Г©Г Г­ ГЄГІГ® ГІГ ГЄГ®Г© Г Г­Г¤Г°ГҐГ©?':
+        bot.send_message(message.chat.id, 'Г‘Г Г¬Г»Г© Г«ГіГ·ГёГЁГ© Г·ГҐГ«Г®ГўГҐГЄ')
+     if message.text.lower() == 'Г°Г Г©Г Г­ Г Г­Г¤Г°ГҐГ© ГЅГІГ®':
+        bot.send_message(message.chat.id, 'Г±Г®Г«Г­Г»ГёГЄГ®')
+     if message.text.lower() == 'Г°Г Г©Г Г­ Г Г Г ':
+        bot.send_message(message.chat.id, 'Г­Гі ГІГ®ГЈГ¤Г  Г¤Г ГўГ Г©')
+     if message.text.lower() == 'Г°Г Г©Г Г­ Г­Гі Г¤Г ':
+        bot.send_message(message.chat.id, 'ГЌГі Г¤Г  ГЇГ®Г«ГіГ·Г ГҐГІГ±Гї')
+     if message.text.lower() == '/Г¤ГҐГ°Г¦Гі Гў ГЄГіГ°Г±ГҐ':
+        bot.send_message(message.chat.id, '#Г¤ГҐГ°Г¦ГіГўГЄГіГ°Г±ГҐГЇГ«Г®ГІГ­ГҐГҐ')
 
-     if message.text.lower() == ' твой любимый фильм':
-        bot.send_message(message.chat.id, 'лалаленд')
+     if message.text.lower() == ' ГІГўГ®Г© Г«ГѕГЎГЁГ¬Г»Г© ГґГЁГ«ГјГ¬':
+        bot.send_message(message.chat.id, 'Г«Г Г«Г Г«ГҐГ­Г¤')
 
-     if 'ракета' in message.text.lower():
+     if 'Г°Г ГЄГҐГІГ ' in message.text.lower():
         bot.send_message(message.chat.id, '_________$__________\n________$_$________\n_______$___$_______\n______$_____$______\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n___$__$___$__$____\n__$__$_$_$_$__$__\n_$__$__$$$__$__$_\n_$$$____$____$$$_\n_$_______$_______$_\n$________$________$\n')
-     if message.text.lower() == 'ракета':
+     if message.text.lower() == 'Г°Г ГЄГҐГІГ ':
         bot.send_message(message.chat.id, '_________$__________\n________$_$________\n_______$___$_______\n______$_____$______\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n___$__$___$__$____\n__$__$_$_$_$__$__\n_$__$__$$$__$__$_\n_$$$____$____$$$_\n_$_______$_______$_\n$________$________$\n')
-     if message.text.lower() == 'лайк':
+     if message.text.lower() == 'Г«Г Г©ГЄ':
         bot.send_sticker(message.chat.id, 'CAADAgADJwQAApzW5wr4HQ0g1_0P6RYE');
 
      if message.text.lower() == 'yoko':
@@ -99,28 +99,28 @@ def send_text (message):
         bot.register_next_step_handler(message, send_text5);
      if message.text.lower() == 'stop ayaya':
         b  = 1;
-     if message.text.lower() == 'stop гэндальф':
+     if message.text.lower() == 'stop ГЈГЅГ­Г¤Г Г«ГјГґ':
         t  = 1;
-     if message.text.lower() == 'stop гэндальф':
+     if message.text.lower() == 'stop ГЈГЅГ­Г¤Г Г«ГјГґ':
          bot.send_photo(message.chat.id,'http://www.cap-that.com/lotr/fotr/images/LOTR-FOTR_0210.jpg',reply_markup=keyboard1)
      if message.text.lower() == 'stop ayaya':
-         bot.send_message(message.chat.id, 'Ну да получается')
+         bot.send_message(message.chat.id, 'ГЌГі Г¤Г  ГЇГ®Г«ГіГ·Г ГҐГІГ±Гї')
          bot.send_photo(message.chat.id,'https://cdn.discordapp.com/icons/645265594219757568/a_f8b99909ac505b5ca915bb4c78427d09.jpg?size=256',reply_markup=keyboard1)
 
-     if message.text.lower() == 'матрица':
-         bot.send_message(message.chat.id, '\033[96mТекст будет голубым\033[0m')
+     if message.text.lower() == 'Г¬Г ГІГ°ГЁГ¶Г ':
+         bot.send_message(message.chat.id, '\033[96mГ’ГҐГЄГ±ГІ ГЎГіГ¤ГҐГІ ГЈГ®Г«ГіГЎГ»Г¬\033[0m')
 
-#######Рандом######################################################################################
+#######ГђГ Г­Г¤Г®Г¬######################################################################################
 
-     if (message.text.lower() == 'random' ) or ("random"  in message.text.lower()) or (message.text.lower() == 'рандом' )  or ("рандом"  in message.text.lower()):
+     if (message.text.lower() == 'random' ) or ("random"  in message.text.lower()) or (message.text.lower() == 'Г°Г Г­Г¤Г®Г¬' )  or ("Г°Г Г­Г¤Г®Г¬"  in message.text.lower()):
          import random
          f = random.randint(1,17)
          if f == 1:
                 bot.send_message(message.chat.id,' AYAYA')
          if f == 2:
-                bot.send_message(message.chat.id,' В ловушке живем')
+                bot.send_message(message.chat.id,' Г‚ Г«Г®ГўГіГёГЄГҐ Г¦ГЁГўГҐГ¬')
          if f == 3:
-                bot.send_message(message.chat.id,' Ну да получается')
+                bot.send_message(message.chat.id,' ГЌГі Г¤Г  ГЇГ®Г«ГіГ·Г ГҐГІГ±Гї')
 
          if f == 4:
 
@@ -165,7 +165,7 @@ def send_text (message):
 
          if f == 14:
 
-                            bot.send_message(message.chat.id,'АААААААААААААААААААААААААААААААААААААА')
+                            bot.send_message(message.chat.id,'ГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂ')
 
          if f == 15:
 
@@ -200,15 +200,15 @@ def send_text5 (message):
 
 
 def send_text7 (message):
-      if message.text.lower() == 'да':
+      if message.text.lower() == 'Г¤Г ':
           bot.send_document(message.chat.id, 'https://i.gifer.com/7Q3S.gif', reply_markup=keyboard5)
           while t==0:
              import time;
              bot.send_document(message.chat.id, 'https://i.gifer.com/7Q3S.gif')
              time.sleep(1)
-             if message.text.lower() == 'stop гэндальф':
+             if message.text.lower() == 'stop ГЈГЅГ­Г¤Г Г«ГјГґ':
                     bot.send_photo(message.chat.id,'https://i.ytimg.com/vi/5LEUJdxJEJk/maxresdefault.jpg', reply_markup=keyboard1)
-             if message.text.lower() == 'stop гэндальф':
+             if message.text.lower() == 'stop ГЈГЅГ­Г¤Г Г«ГјГґ':
                     False
 
       else:
@@ -226,22 +226,22 @@ def send_text7 (message):
 
 def send_text6 (message):
         key = types.InlineKeyboardMarkup()
-        but_1 = types.InlineKeyboardButton(text="Ракета", callback_data="Ракета")
-        but_2 = types.InlineKeyboardButton(text="Лайк", callback_data="Лайк")
+        but_1 = types.InlineKeyboardButton(text="ГђГ ГЄГҐГІГ ", callback_data="ГђГ ГЄГҐГІГ ")
+        but_2 = types.InlineKeyboardButton(text="Г‹Г Г©ГЄ", callback_data="Г‹Г Г©ГЄ")
         but_3 = types.InlineKeyboardButton(text="Yoko", callback_data="Yoko")
         but_4 = types.InlineKeyboardButton(text="pickachu", callback_data="pickachu")
         but_5 = types.InlineKeyboardButton(text="...", callback_data="...")
-        but_6 = types.InlineKeyboardButton(text="гэндальф", callback_data="гэндальф")
-        but_7 = types.InlineKeyboardButton(text="Не нажимай", callback_data="test")
+        but_6 = types.InlineKeyboardButton(text="ГЈГЅГ­Г¤Г Г«ГјГґ", callback_data="ГЈГЅГ­Г¤Г Г«ГјГґ")
+        but_7 = types.InlineKeyboardButton(text="ГЌГҐ Г­Г Г¦ГЁГ¬Г Г©", callback_data="test")
         key.add(but_1, but_2, but_3, but_4, but_5, but_6, but_7)
-        bot.send_message(message.chat.id, "Список команд", reply_markup=key)
-        bot.send_message(message.chat.id, "oOOo ?·??·? oOOo", reply_markup=keyboard1)
+        bot.send_message(message.chat.id, "Г‘ГЇГЁГ±Г®ГЄ ГЄГ®Г¬Г Г­Г¤", reply_markup=key)
+        bot.send_message(message.chat.id, "oOOo ?В·??В·? oOOo", reply_markup=keyboard1)
 
 @bot.callback_query_handler(func=lambda c:True)
 def inlin(c):
-     if c.data == 'Ракета':
+     if c.data == 'ГђГ ГЄГҐГІГ ':
         bot.send_message(c.message.chat.id, '_________$__________\n________$_$________\n_______$___$_______\n______$_____$______\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n_____$_______$_____\n___$__$___$__$____\n__$__$_$_$_$__$__\n_$__$__$$$__$__$_\n_$$$____$____$$$_\n_$_______$_______$_\n$________$________$\n', reply_markup=keyboard1)
-     if c.data == 'Лайк':
+     if c.data == 'Г‹Г Г©ГЄ':
         bot.send_sticker(c.message.chat.id, 'CAADAgADJwQAApzW5wr4HQ0g1_0P6RYE', reply_markup=keyboard1)
      if c.data == 'Yoko':
         bot.send_message(c.message.chat.id, "shinobu ni", reply_markup=keyboard2);
@@ -250,14 +250,14 @@ def inlin(c):
         bot.send_message(c.message.chat.id, 'Pika!')
         bot.send_document(c.message.chat.id, 'https://zvezdochet.guru/images/pokemon/Pikachu.gif', reply_markup=keyboard1)
      if c.data == '...':
-        bot.send_message(c.message.chat.id, 'произошла постирония')
+        bot.send_message(c.message.chat.id, 'ГЇГ°Г®ГЁГ§Г®ГёГ«Г  ГЇГ®Г±ГІГЁГ°Г®Г­ГЁГї')
         bot.send_photo(c.message.chat.id,'https://im0-tub-ru.yandex.net/i?id=509de419419eb3797b638f7b9f13dae1-l&n=13', reply_markup=keyboard1)
-     if c.data == 'гэндальф':
-        bot.send_message(c.message.chat.id, "время кивать? ??", reply_markup=keyboard6);
+     if c.data == 'ГЈГЅГ­Г¤Г Г«ГјГґ':
+        bot.send_message(c.message.chat.id, "ГўГ°ГҐГ¬Гї ГЄГЁГўГ ГІГј? ??", reply_markup=keyboard6);
         bot.register_next_step_handler(c.message, send_text7);
      if c.data == "test":
         bot.edit_message_text(chat_id=c.message.chat.id, message_id=c.message.message_id, text="????????????")
-        bot.answer_callback_query(callback_query_id=c.id, show_alert=False, text="Я же просил тебя не жать ??")
+        bot.answer_callback_query(callback_query_id=c.id, show_alert=False, text="Гџ Г¦ГҐ ГЇГ°Г®Г±ГЁГ« ГІГҐГЎГї Г­ГҐ Г¦Г ГІГј ??")
 
 
 
@@ -274,9 +274,9 @@ def send_text8 (message):
      if f == 1:
             bot.send_message(message.chat.id,' AYAYA')
      if f == 2:
-            bot.send_message(message.chat.id,' В ловушке живем')
+            bot.send_message(message.chat.id,' Г‚ Г«Г®ГўГіГёГЄГҐ Г¦ГЁГўГҐГ¬')
      if f == 3:
-            bot.send_message(message.chat.id,' Ну да получается')
+            bot.send_message(message.chat.id,' ГЌГі Г¤Г  ГЇГ®Г«ГіГ·Г ГҐГІГ±Гї')
 
      if f == 4:
 
@@ -321,7 +321,7 @@ def send_text8 (message):
 
      if f == 14:
 
-                        bot.send_message(message.chat.id,'АААААААААААААААААААААААААААААААААААААА')
+                        bot.send_message(message.chat.id,'ГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂГЂ')
 
      if f == 15:
 
