@@ -8,6 +8,8 @@ import telebot
 from telebot import types
 from collections import deque
 import os
+from collections import Iterable
+from gtts import gTTS
 
 TOKEN = "1085187414:AAGoY-iUZ43A1Ya8b4ortxbS2a_utuOZYz8"
 MY_ID = 374545615
@@ -16,7 +18,7 @@ A_ID = 948882144
 S_ID = 229916429
 SMALL = 5
 MEDIUM = 15
-LARGE = 40
+LARGE = 80
 COMMAND1 = "ls"
 COMMAND = "curl -s -X POST https://api.telegram.org/bot" + TOKEN + "/sendMessage -d chat_id=" # $CHAT_ID -d text="$MESSAGE""
 knownUsers = []     # todo: save these in a file,
@@ -30,7 +32,12 @@ commands = {  # command description used in the "help" command
     'random_sentence': 'return random sentence',
 	'large_random_sentence' : 'return random sentence of ' + str(LARGE) + ' words',
 	'medium_random_sentence' : 'return random sentence of ' + str(MEDIUM) + ' words',
-	'small_random_sentence' : 'return random sentence of ' + str(SMALL) + ' words'
+	'small_random_sentence' : 'return random sentence of ' + str(SMALL) + ' words',
+	'send_history' : 'send file with history of messages',
+	'send_dictionary' : 'send file with dictionary',
+	'tts' : 'convert text to speech',
+	'say_random_large' : 'generates large voice message',
+	'say_random' : 'generates small voice message' 
 }
 
 andrew_stickers = [ "CAACAgIAAxkBAAIEDl6y6VHHWnQyREHAf6ciCC4g6sfWAAIMAAPPHFMW_xIObRSe8EQZBA",
@@ -68,19 +75,37 @@ def print_dict_file(dictionary):
 
 # only used for console output now
 def listener(messages):
-    """
-    When new messages arrive TeleBot will call this function.
-    """
-    for m in messages:
-        if m.content_type == 'text' and m.text[0] != '/':
-            file_history = open("history" + str(m.chat.id) + ".txt", "a+")
-            file_history.write(m.from_user.first_name + "[" + str(m.from_user.id) + "] : " + m.text + "\n")
-            file_history.close()
-        elif m.content_type == 'sticker':
-            bot.send_message(MY_ID, m.sticker.file_id)
-            file_history = open("history" + str(m.chat.id) + ".txt", "a")
-            file_history.close()
-
+	"""
+	When new messages arrive TeleBot will call this function.
+	"""
+	if isinstance(messages, Iterable):
+		for m in messages:
+			if check_id(m) == 1:
+				bot.delete_message(m.chat.id, m.message_id)
+				return ;
+			if m.content_type == 'text' and "бот скажи" in m.text.lower():
+				bot_say(m)
+			elif m.content_type == 'text' and "/tts" in m.text.lower():
+				text_to_speech(m)
+			elif m.content_type == 'text' and (m.text.lower() == 'бот кинь кубик' or m.text.lower() == 'кинь кубик'):
+				bot.send_message(m.chat.id, "🎲")
+			elif m.content_type == 'text' and (m.text.lower() == 'бутерброд' or '🥪' in m.text.lower()):
+				bot.send_sticker(m.chat.id, "CAACAgIAAx0CT5KqDQACKfZey-lqcAABF5W6DVtvX6jzk_FVD8wAAh0EAAJa44oXaJW1lB4mzXcZBA")
+				bot.register_next_step_handler(m, buterbrod)
+			elif m.content_type == 'text' and " или " in m.text.lower() and m.text.lower().startswith("бот"):
+				choice(m)
+			elif m.content_type == 'text' and ("бот насколько " in m.text.lower() or "насколько" in m.text.lower() or "на сколько" in m.text.lower()):
+				probability(m)
+			elif m.content_type == 'text' and m.text[0] != '/':
+				file_history = open("history" + str(m.chat.id) + ".txt", "a+")
+				file_history.write(m.from_user.first_name + "[" + str(m.from_user.id) + "] : " + m.text + "\n")
+				file_history.close()
+			elif m.content_type == 'sticker':
+				bot.send_message(MY_ID, m.sticker.file_id)
+				file_history = open("history" + str(m.chat.id) + ".txt", "a")
+				file_history.close()
+	elif messages.text == '🥪':
+		probability(messages)
 
 bot = telebot.TeleBot(TOKEN)
 bot.set_update_listener(listener)  # register listener
@@ -94,6 +119,106 @@ def command_help(m):
         help_text += "/" + key + ": "
         help_text += commands[key] + "\n"
     bot.send_message(cid, help_text)  # send the generated help page
+
+
+def	check_id(m):
+	f = open("muted.txt", "r")
+	ids = f.readlines()
+	for x in ids:
+		if int(x) == m.from_user.id:
+			return 1
+	return 0
+
+def text_to_speech(m):
+	strs = m.text.split(" ", 1)
+	if (len(strs) < 2):
+		ask_to_text(m)
+		return
+	tts = gTTS(strs[1], lang='ru')
+	tts.save('audio.ogg')
+	audio = open('audio.ogg', 'rb')
+	bot.send_voice(m.chat.id, audio) 
+
+
+def bot_say(m):
+	strs = m.text.split("бот скажи", 1)
+	if (len(strs) < 2):
+		ask_to_text(m)
+		return
+	tts = gTTS(strs[1], lang='ru')
+	tts.save('audio.ogg')
+	audio = open('audio.ogg', 'rb')
+	bot.send_voice(m.chat.id, audio) 
+
+
+
+def ask_to_text(m):
+	a = 1
+	
+
+@bot.message_handler(commands=['send_history'])
+def command_help(m):
+	f = open("history" + str(m.chat.id) + ".txt", 'rb')
+	bot.send_document(m.chat.id, f)
+	f.close()
+ 
+@bot.message_handler(commands=['send_dictionary'])
+def command_help(m):
+	f = open("dictionary.txt", 'rb')
+	bot.send_document(m.chat.id, f)
+	f.close()
+ 
+
+def buterbrod(m):
+	bot.send_sticker(m.chat.id, "CAACAgIAAx0CT5KqDQACKfdey-ls5ffNFol-9PjTjr9qCEc_0QACFgQAAlrjihftOsVOK2ZRqRkE")
+	bot.register_next_step_handler(m, listener);
+
+def choice(m):
+	strs = m.text.lower().split("бот ")
+	strs = strs[1].split(" или ")
+	for x in strs:
+		if " я " in x:
+			x = x.replace(" я ", " ты ")
+		elif x.startswith("я"):
+			x = x.replace("я", "ты", 1)
+		elif " ты " in x:
+			x = x.replace(" ты "," я ")
+		elif x.startswith("ты"):
+			x = x.replace("ты", "я", 1)
+	bot.send_message(m.chat.id, "Определённо " + random.choice(strs)) 
+	
+
+
+def probability(m):
+	if "насколько" in m.text.lower():
+		strs = m.text.lower().split("насколько",2)
+	elif "на сколько" in m.text.lower():
+		strs = m.text.lower().split("на сколько", 2)
+	if (len(strs) > 1):
+		prob = random.randint(0, 101)
+		if " я " in strs[1]:
+			strs[1] = strs[1].replace(" я ", " ты ")
+		elif " ты " in strs[1]:
+			strs[1] = strs[1].replace(" ты "," я ")
+		bot.send_message(m.chat.id, "Я думаю, что" + strs[1] + " на " + str(prob) + "%")
+
+
+@bot.message_handler(commands=['say_random'])
+def random_sentence(m):
+	text = generate("history" + str(m.chat.id) + ".txt", SMALL)
+	tts = gTTS(text, lang='ru')
+	tts.save('random.ogg')
+	audio = open('random.ogg', 'rb')
+	bot.send_voice(m.chat.id, audio)
+
+
+@bot.message_handler(commands=['say_random_large'])
+def random_sentence(m):
+	text = generate("history" + str(m.chat.id) + ".txt", LARGE)
+	tts = gTTS(text, lang='ru')
+	tts.save('random_large.ogg')
+	audio = open('random_large.ogg', 'rb')
+	bot.send_voice(m.chat.id, audio)
 
 
 @bot.message_handler(commands=['random_sentence'])
