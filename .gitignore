@@ -1,2 +1,11 @@
 .DS_Store
 .idea
+audio_files/*
+history_files/*
+db.sqlite
+info.py
+dictionary.txt
+muted.txt
+file.txt
+temp.txt
+*.ogg
