@@ -1,6 +1,6 @@
 # Wall-e 
 
-Hello, my name is `Wall-e`. It's the list of what I can do:
+Hello, my name is `Wall-e` and I'm **_Telegram_** bot! It's the list of what I can do:
 * generate random sentence from messages in dialogue/group 
 * transform text in speech
 * generate random voice message (using random message)
