@@ -12,7 +12,7 @@ def print_dict_file(dictionary):
     f.close()
 
 
-def generate(history, length):
+def generate(history: list, length):
     strings = list()
     for row in history:
         strings.append(row[2].replace('\n', ' ').lower())

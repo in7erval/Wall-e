@@ -49,3 +49,41 @@ def save_message(m):
 
 def get_history(chat_id):
     return execute_read_query(f"SELECT name, person_id, message from history WHERE chat_id={chat_id}")
+
+
+def init():
+    execute_query(
+     """
+     CREATE TABLE IF NOT EXISTS reminder(
+     id INTEGER constraint reminder_pk primary key autoincrement,
+     datetime TEXT not null,
+     text TEXT not null, 
+     from_id INTEGER not null);
+     """)
+    execute_query(
+    """
+    CREATE TABLE IF NOT EXISTS history(
+    id INTEGER not null
+        constraint history_pk
+            primary key autoincrement,
+    chat_id INTEGER not null,
+    name TEXT not null,
+    message TEXT not null,
+    person_id INTEGER not null);
+    """)
+
+
+def delete_history(chat_id):
+    execute_query(
+        """
+        CREATE TABLE IF NOT EXISTS history_backup(
+        id INTEGER not null
+        constraint history_pk
+            primary key autoincrement,
+        chat_id INTEGER not null,
+        name TEXT not null,
+        message TEXT not null,
+        person_id INTEGER not null);
+        """)
+    execute_read_query("""
+    SELECT * FROM """)

@@ -5,7 +5,6 @@ import logging
 import random
 import re
 import sys
-import tempfile
 import time
 import db
 from generate import generate
@@ -142,11 +141,6 @@ def text_to_speech(m):
     bot.send_voice(m.chat.id, audio)
 
 
-@bot.message_handler(commands=['send_poll'])
-def send_poll(m):
-    bot.send_poll(m.chat.id, 'Question', ['Answer1', 'Answer2', 'Answer3'])
-
-
 def bot_say(m):
     strs = m.text.split("бот скажи", 1)
     if len(strs) < 2:
@@ -160,12 +154,11 @@ def bot_say(m):
 @bot.message_handler(commands=['send_history'])
 def command_help(m):
     rows = db.get_history(m.chat.id)
-    temp = open("temp.txt", 'w+')
+    temp = open("history.txt", 'w+')
     for row in rows:
         temp.write(f"{row[0]}[{row[1]}]: {row[2]}\n")
     temp = open('temp.txt', 'rb')
     bot.send_document(m.chat.id, temp)
-
 
 
 @bot.message_handler(commands=['send_dictionary'])
@@ -200,7 +193,7 @@ def probability(m):
         strs = m.text.lower().split("насколько", 2)
     elif "на сколько" in m.text.lower():
         strs = m.text.lower().split("на сколько", 2)
-    if (len(strs) > 1):
+    if len(strs) > 1:
         prob = random.randint(0, 101)
         if " я " in strs[1]:
             strs[1] = strs[1].replace(" я ", " ты ")
@@ -211,7 +204,7 @@ def probability(m):
 
 @bot.message_handler(commands=['say_random'])
 def random_sentence(m):
-    text = generate(HISTORY + str(m.chat.id) + ".txt", SMALL)
+    text = generate(db.get_history(m.chat.id), SMALL)
     tts = gTTS(text, lang='ru')
     tts.save('audio_files/random.ogg')
     audio = open('audio_files/random.ogg', 'rb')
@@ -220,7 +213,7 @@ def random_sentence(m):
 
 @bot.message_handler(commands=['say_random_large'])
 def random_sentence(m):
-    text = generate(HISTORY + str(m.chat.id) + ".txt", LARGE)
+    text = generate(db.get_history(m.chat.id), LARGE)
     tts = gTTS(text, lang='ru')
     tts.save('audio_files/random_large.ogg')
     audio = open('audio_files/random_large.ogg', 'rb')
@@ -303,24 +296,7 @@ def sticker12324(m):
 
 if __name__ == '__main__':
     bot.set_update_listener(listener)  # register listener
-    db.execute_query(
-     """
-     CREATE TABLE IF NOT EXISTS reminder(
-     id INTEGER constraint reminder_pk primary key autoincrement,
-     datetime TEXT not null,
-     text TEXT not null, 
-     from_id INTEGER not null);
-     """)
-    db.execute_query("""
-    CREATE TABLE IF NOT EXISTS history(
-    id INTEGER not null
-        constraint history_pk
-            primary key autoincrement,
-    chat_id INTEGER not null,
-    name TEXT not null,
-    message TEXT not null,
-    person_id INTEGER not null);
-    """)
+    db.init()
 
     logger = logging.getLogger('Wall•e')
     formatter = logging.Formatter('%(asctime)s (%(filename)s:%(lineno)d %(threadName)s) %(levelname)s - %(name)s: "%(message)s"')
