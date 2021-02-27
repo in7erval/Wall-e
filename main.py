@@ -16,7 +16,6 @@ import telebot
 
 # add your file info.py with TOKEN and MY_ID variables or simply change it in bot initialization V
 from info import TOKEN, MY_ID
-
 bot = telebot.AsyncTeleBot(TOKEN)
 
 
