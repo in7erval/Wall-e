@@ -1,9 +1,6 @@
 aiogram==2.10.1
 aiohttp==3.6.2
 alabaster==0.7.12
-anaconda-client==1.7.2
-anaconda-navigator==1.9.12
-anaconda-project==0.8.3
 appdirs==1.4.4
 applaunchservices==0.2.1
 appnope @ file:///opt/concourse/worker/volumes/live/0291c9e1-4b15-459f-623e-2770f55be269/volume/appnope_1594338395037/work
@@ -18,7 +15,6 @@ async-timeout==3.0.1
 atomicwrites==1.4.0
 attrs==19.3.0
 autopep8 @ file:///tmp/build/80754af9/autopep8_1592412889138/work
-Babel==2.8.0
 backcall==0.2.0
 backports.functools-lru-cache==1.6.1
 backports.shutil-get-terminal-size==1.0.0
@@ -39,10 +35,6 @@ click==7.1.2
 cloudpickle @ file:///tmp/build/80754af9/cloudpickle_1594141588948/work
 clyent==1.2.2
 colorama==0.4.3
-conda==4.8.3
-conda-build==3.18.11
-conda-package-handling==1.7.0+0.g7c4a471.dirty
-conda-verify==3.4.2
 contextlib2==0.6.0.post1
 cryptography==2.9.2
 cycler==0.10.0
@@ -92,12 +84,6 @@ Jinja2==2.11.2
 joblib @ file:///tmp/build/80754af9/joblib_1594236160679/work
 json5==0.9.5
 jsonschema @ file:///opt/concourse/worker/volumes/live/143dedb7-a810-4064-6e47-436d4dbcc943/volume/jsonschema_1594363611216/work
-jupyter==1.0.0
-jupyter-client @ file:///tmp/build/80754af9/jupyter_client_1594826976318/work
-jupyter-console==6.1.0
-jupyter-core==4.6.3
-jupyterlab==2.1.5
-jupyterlab-server @ file:///tmp/build/80754af9/jupyterlab_server_1594164409481/work
 keyring @ file:///opt/concourse/worker/volumes/live/f2a8edc0-64b5-40f0-5d81-bbd31149cbe1/volume/keyring_1593109772159/work
 kiwisolver==1.2.0
 lazy-object-proxy==1.4.3
@@ -127,10 +113,6 @@ networkx @ file:///tmp/build/80754af9/networkx_1594377231366/work
 nltk @ file:///tmp/build/80754af9/nltk_1592496090529/work
 nose @ file:///opt/concourse/worker/volumes/live/a029938e-1732-4cd8-5b98-0542283d158b/volume/nose_1594377915100/work
 notebook==6.0.3
-numba==0.50.1
-numexpr==2.7.1
-numpy==1.18.5
-numpydoc @ file:///tmp/build/80754af9/numpydoc_1594166760263/work
 olefile==0.46
 openpyxl @ file:///tmp/build/80754af9/openpyxl_1594167385094/work
 packaging==20.4
@@ -145,7 +127,6 @@ patsy==0.5.1
 pep8==1.7.1
 pexpect @ file:///opt/concourse/worker/volumes/live/8701bb20-ad87-46c7-5108-30c178cf97e5/volume/pexpect_1594383388344/work
 pickleshare @ file:///opt/concourse/worker/volumes/live/93ec39d8-05bb-4f84-7efc-98735bc39b70/volume/pickleshare_1594384101884/work
-Pillow @ file:///opt/concourse/worker/volumes/live/be1e8a56-c4be-4ffe-4fa7-5a0e9c460b1a/volume/pillow_1594307312933/work
 pkginfo==1.5.0.1
 pluggy==0.13.1
 ply==3.11
