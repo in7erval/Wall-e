@@ -114,7 +114,7 @@ def remember(m):
         return
     logger.debug(f'remember {date} -- {what}')
     db.save_remind(date, what, m.chat.id)
-    bot.send_message()
+    bot.send_message(m.chat.id, 'Ок')
     scheduler.add_job(print_msg, 'date', run_date=date, args=(f'Напоминаю: {what}', date, m.chat.id, ))
 
 
