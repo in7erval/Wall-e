@@ -12,7 +12,7 @@ from generate import generate
 from scheduler import scheduler
 from gtts import gTTS
 from constants import SMALL, MEDIUM, LARGE, HISTORY, commands, andrew_stickers
-from pyTelegramBotAPI import telebot
+import telebot
 
 # add your file info.py with TOKEN and MY_ID variables or simply change it in bot initialization V
 from info import TOKEN, MY_ID
@@ -33,9 +33,6 @@ def print_dict(dictionary):
 def listener(messages):
     if isinstance(messages, collections.Iterable):
         for m in messages:
-            if check_id(m) == 1:
-                bot.delete_message(m.chat.id, m.message_id)
-                return
             if m.content_type == 'text' and "бот скажи" in m.text.lower():
                 bot_say(m)
             elif m.content_type == 'text' and "/tts" in m.text.lower():
@@ -73,15 +70,6 @@ def command_help(m):
         help_text += "/" + key + ": "
         help_text += commands[key] + "\n"
     bot.send_message(cid, help_text)
-
-
-def check_id(m):
-    f = open("muted.txt", "r")
-    ids = f.readlines()
-    for x in ids:
-        if int(x) == m.from_user.id:
-            return 1
-    return 0
 
 
 def remember(m):
