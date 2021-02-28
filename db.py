@@ -26,19 +26,19 @@ def execute_read_query(query):
     return result
 
 def save_remind(date, text, from_id):
-    execute_query(f"INSERT INTO reminder (datetime, text, from_id) VALUES ('{date}', '{text}', {from_id})")
+    execute_query(f"INSERT INTO reminder (datetime, text, from_id) VALUES ('{date}', '{text}', {from_id});")
 
 
 def delete_remind(date, text, from_id):
-    execute_query(f"DELETE FROM reminder WHERE datetime='{date}' AND text='{text}' AND from_id={from_id}")
+    execute_query(f"DELETE FROM reminder WHERE datetime='{date}' AND text='{text}' AND from_id={from_id};")
 
 
 def save_message(m):
-    execute_query(f"INSERT INTO history (chat_id, name, message, person_id) VALUES ({m.chat.id}, '{m.from_user.first_name}', '{m.text}', {m.from_user.id})")
+    execute_query(f"INSERT INTO history (chat_id, name, message, person_id) VALUES ({m.chat.id}, '{m.from_user.first_name}', '{m.text}', {m.from_user.id});")
 
 
 def get_history(chat_id):
-    return execute_read_query(f"SELECT name, person_id, message from history WHERE chat_id={chat_id}")
+    return execute_read_query(f"SELECT name, person_id, message from history WHERE chat_id={chat_id};")
 
 
 def init():

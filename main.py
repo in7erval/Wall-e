@@ -292,7 +292,7 @@ if __name__ == '__main__':
     logger.setLevel(logging.DEBUG)
     scheduler.add_job(logger.debug, 'interval', seconds=10, args=(' ',))
 
-    rows = db.execute_read_query(f"SELECT (datetime, text, from_id) FROM reminder")
+    rows = db.execute_read_query(f"SELECT (datetime, text, from_id) FROM reminder;")
     if rows:
         for row in rows:
             print(f'{row[0]} {row[1]} {row[2]}')
