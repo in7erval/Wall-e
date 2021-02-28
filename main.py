@@ -284,13 +284,12 @@ def sticker12324(m):
 if __name__ == '__main__':
     bot.set_update_listener(listener)  # register listener
     db.init()
-
     logger = logging.getLogger('Wall•e')
     formatter = logging.Formatter('%(asctime)s (%(filename)s:%(lineno)d %(threadName)s) %(levelname)s - %(name)s: "%(message)s"')
     console_output_handler = logging.StreamHandler(sys.stderr)
     console_output_handler.setFormatter(formatter)
     logger.addHandler(console_output_handler)
-    logger.setLevel(logging.ERROR)
+    logger.setLevel(logging.DEBUG)
     scheduler.add_job(logger.debug, 'interval', seconds=10, args=(' ',))
 
     rows = db.execute_read_query(f"SELECT (datetime, text, from_id) FROM reminder")
