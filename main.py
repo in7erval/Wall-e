@@ -291,11 +291,10 @@ if __name__ == '__main__':
     logger.addHandler(console_output_handler)
     logger.setLevel(logging.DEBUG)
     scheduler.add_job(logger.debug, 'interval', seconds=10, args=(' ',))
-
-    rows = db.execute_read_query(f"SELECT (datetime, text, from_id) FROM reminder;")
+    rows = db.execute_read_query(f"SELECT datetime, text, from_id FROM reminder")
     if rows:
         for row in rows:
-            print(f'{row[0]} {row[1]} {row[2]}')
+            logger.info(f'{row[0]} {row[1]} {row[2]}')
             scheduler.add_job(print_msg, 'date', run_date=row[0], args=(f'Напоминаю: {row[1]}', row[0], row[2], ))
 
     scheduler.start()
